@@ -5,7 +5,10 @@
 	<title>HTML5 Canvas</title>
 </head>
 <body>
-<canvas id="draw" width="800" height="800"></canvas>
+<div>
+	<button class="clear-button" onclick="{{ctx.clearRect(0, 0, canvas.width, canvas.height)}}">CLEAR IT</button>
+	<canvas id="draw" width="800" height="800"></canvas>
+</div>
 <script>
     const canvas = document.querySelector('#draw');
     const ctx = canvas.getContext('2d');
@@ -16,7 +19,7 @@
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
     ctx.lineWidth = 10;
-    ctx.globalCompositeOperation = 'color-burn';
+    ctx.globalCompositeOperation = 'luminosity';
 
     let isDrawing = false;
     let lastX = 0;
@@ -67,7 +70,17 @@
 		margin: 0;
 	}
 
+	button {
+		display: inline-block;
+		margin: 14px 7% 1rem;
+	}
+
 	canvas {
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		border-color: rgba(44,22,106,0.85);
+		box-shadow: aquamarine;
 	}
 </style>
 
